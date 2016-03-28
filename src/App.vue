@@ -1,6 +1,7 @@
 <template>
-  <div id="app">
+  <div>
     <img class="logo" src="./assets/logo.png">
+    <p>{{ counter }}</p>
     <hello></hello>
     <p>
       Welcome to your Vue.js app. To get started, take a look at the
@@ -24,8 +25,18 @@
 import Hello from './components/Hello'
 
 export default {
+  data () {
+    return {
+      counter: 0
+    }
+  },
   components: {
     Hello
+  },
+  ready () {
+    setInterval(() => {
+      this.counter = this.counter + 1
+    }, 1000)
   }
 }
 </script>
